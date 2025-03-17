@@ -119,7 +119,6 @@ export default function PlaylistDetails({ params }: Props) {
     //     }
     // };
 
-    // Search yt-dlp for Track
     const playFromYouTube = async (track: SpotifyTrack, index: number) => {
         try {
             const query =
