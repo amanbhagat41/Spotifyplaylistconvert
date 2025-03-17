@@ -18,7 +18,7 @@ export async function GET(req: NextRequest) {
 
     const outputFile = path.join("/tmp", `downloaded_audio.mp3`);
 
-    return new Promise((resolve) => {
+    return new Promise<Response>((resolve) => {
         const command = `yt-dlp -x --audio-format mp3 -o "~/Downloads/%(title)s.%(ext)s" "${videoUrl}"`;
 
         console.log(`Running command: ${command}`);
