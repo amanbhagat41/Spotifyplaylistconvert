@@ -14,7 +14,7 @@ export async function GET(req: NextRequest) {
         );
     }
 
-    return new Promise((resolve) => {
+    return new Promise<Response>((resolve) => {
         // Use yt-dlp to search for the video and extract the video ID
         const command = `yt-dlp "ytsearch:${query}" --get-id`;
 
