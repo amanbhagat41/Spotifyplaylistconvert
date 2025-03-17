@@ -34,7 +34,7 @@ export default function PlaylistsPage() {
 
                 // Read response as text to inspect possible HTML error page
                 const textResponse = await response.text();
-                console.log("Response Text:", textResponse); // Log the raw response
+                console.log("Response Text:", textResponse);
 
                 if (!response.ok) {
                     setError(`Failed to fetch playlists: ${textResponse}`);
