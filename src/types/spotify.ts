@@ -31,13 +31,3 @@ export interface SpotifyPlaylist {
     };
     images: SpotifyImage[];
 }
-interface SongPreview {
-    previewUrls: string[];
-    name: string;
-}
-
-interface SpotifyPreviewResponse {
-    success: boolean;
-    results: SongPreview[];
-    error?: string; // Optional error message
-}

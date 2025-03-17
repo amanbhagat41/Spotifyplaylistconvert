@@ -33,6 +33,7 @@ export default function CallbackPage() {
                 localStorage.setItem("spotify_access_token", data.access_token);
                 router.push("/"); // Redirect to homepage
             } catch (err) {
+                console.log(err);
                 setError("Failed to authorize with Spotify");
             }
         };

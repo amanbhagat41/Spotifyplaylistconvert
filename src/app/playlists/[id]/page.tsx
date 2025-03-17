@@ -5,8 +5,6 @@ import { SpotifyTrack } from "@/types/spotify";
 import SpotifyWebApi from "spotify-web-api-node";
 import axios from "axios";
 import YouTubeAudioPlayer from "@/component/YoutubeAudioPlayer";
-import Image from "next/image";
-import downloadButton from "/public/images/download_buttonGreen.png";
 interface Props {
     params: Promise<{ id: string }>;
 }
@@ -22,7 +20,7 @@ export default function PlaylistDetails({ params }: Props) {
     const [loadingTrack, setLoadingTrack] = useState<boolean>(true);
     const [id, setId] = useState<string | null>(null);
     const [videoId, setVideoId] = useState<string | null>(null);
-    const [loading, setLoading] = useState(false);
+    // const [loading, setLoading] = useState(false);
     const [currentTrackIndex, setCurrentTrackIndex] = useState<number | null>(
         null
     );
@@ -54,6 +52,7 @@ export default function PlaylistDetails({ params }: Props) {
             localStorage.setItem("spotify_access_token", data.access_token);
             spotifyApi.setAccessToken(data.access_token);
         } catch (err) {
+            console.log(err);
             setError("Failed to retrieve Spotify token");
         }
     };
@@ -77,6 +76,7 @@ export default function PlaylistDetails({ params }: Props) {
                 const data = response.body.items.map((item: any) => item.track);
                 setTracks(data);
             } catch (err) {
+                console.log(err);
                 setError("Failed to fetch tracks");
             } finally {
                 setLoadingTrack(false);
@@ -140,6 +140,7 @@ export default function PlaylistDetails({ params }: Props) {
                 alert("No video found for this track.");
             }
         } catch (err) {
+            console.log(err);
             setError("Failed to find video on YouTube");
         }
         console.log("Current Track Index: ", currentTrackIndex);
