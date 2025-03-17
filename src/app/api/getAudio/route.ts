@@ -14,7 +14,7 @@ export async function GET(req: NextRequest) {
         );
     }
 
-    return new Promise((resolve) => {
+    return new Promise<Response>((resolve) => {
         const command = `yt-dlp -f bestaudio --get-url "${videoUrl}"`;
 
         exec(command, (error, stdout) => {
