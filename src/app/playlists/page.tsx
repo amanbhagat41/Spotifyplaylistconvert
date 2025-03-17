@@ -46,9 +46,9 @@ export default function PlaylistsPage() {
                 // Parse JSON response
                 const data = JSON.parse(textResponse);
                 setPlaylists(data.items);
-            } catch (error: any) {
-                console.error("Error fetching playlists:", error);
-                setError(error.message);
+            } catch (err) {
+                console.log(err);
+                setError("Error fetching playlists:");
             } finally {
                 setLoading(false);
             }

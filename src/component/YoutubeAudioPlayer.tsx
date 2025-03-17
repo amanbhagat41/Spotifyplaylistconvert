@@ -8,9 +8,10 @@ import playButton from "/public/images/play-button-svgrepo-com.svg";
 import pauseButton from "/public/images/pause-button-svgrepo-com.svg";
 import downloadButton from "/public/images/download_button.png";
 import nextSong from "/public/images/next-track-button.png";
+import { SpotifyTrack } from "@/types/spotify";
 interface YouTubeAudioPlayerProps {
     videoId: string;
-    tracks: any[];
+    tracks: SpotifyTrack[];
     currentTrackIndex: number;
     onTrackEnd: () => void; // ✅ New prop
 }

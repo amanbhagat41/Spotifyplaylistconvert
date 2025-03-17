@@ -73,7 +73,9 @@ export default function PlaylistDetails({ params }: Props) {
                 await getAccessToken();
 
                 const response = await spotifyApi.getPlaylistTracks(id);
-                const data = response.body.items.map((item: any) => item.track);
+                const data = response.body.items.map(
+                    (item: SpotifyApi.PlaylistTrackObject) => item.track
+                );
                 setTracks(data);
             } catch (err) {
                 console.log(err);
